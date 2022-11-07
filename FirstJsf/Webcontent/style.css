@@ -1,0 +1,35 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 4 nov. 2022, 16:53:58
+    Author     : xheguy
+*/
+
+body {
+    background-color: #E87008;
+}
+table, caption, th, td, thead {
+    border: 1px solid;
+    text-align: center;
+    background-color: #9F5F26;
+    border-collapse: collapse;
+}
+img {
+    width : 100%;
+    height : 100%;
+}
+table {
+    border: 4px outset #47270B;
+    
+    margin-left:auto;
+    margin-right:auto;
+}
+td {
+    width: 150px;
+    height: 150px;
+}
+h1 {
+    text-align: center;
+}
