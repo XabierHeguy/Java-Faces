@@ -2,17 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
-<h:head></h:head> 
-<body> 
-<p>Joli formulaire</p>
-<h:form action="index.xhtml" method="post">
-   <p>Taper le mot à afficher :</p>
-   <h:inputText value="mot" />
-   <p><h:outputText value="1er affichage" /></p>
-   <p><h:outputText value="#{mot}" /></p>
-   <h:commandButton value="Envoyer" />
+<h:head>
+<h:link rel="stylesheet" href="style.css" type="text/css" />
+</h:head> 
+<h:body> 
+<h1>Joli formulaire</h1>
+<h:form>
+   Entrez votre nom : <h:inputText id="name" value="#{variable}" a:placeholder="Votre nom" />
+   <h:commandButton value="Envoyer" action="NewFile.xhtml" />
 </h:form>
-</body> 
+</h:body> 
 </html>
