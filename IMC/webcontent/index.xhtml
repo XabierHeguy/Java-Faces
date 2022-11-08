@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
+
+<h:head><h:outputStylesheet name="css/style.css" /></h:head> 
+<h:body> 
+<h1>CALCUL DE L'IMC</h1>
+<p>Veuillez remplir le formulaire suivant SVP.</p>
+<h:form>
+   <p>Nom : <h:inputText id="name" value="#{patient.nom}" a:placeholder="Votre nom">
+   		<f:validateRequired />
+   </h:inputText></p>
+<!--   <p>Age : <h:inputText id="age" value="#{patient.age}" a:placeholder="Votre age" /></p>
+   Sexe : <h:selectOneRadio value="#{patient.sexe}">
+   	<f:selectItem  itemLabel="homme" itemValue="homme" />
+   	<f:selectItem  itemLabel="femme" itemValue="femme" />
+   </h:selectOneRadio>-->
+   <p>Poids (en Kg) : <h:inputText id="poids" value="#{patient.poids}" a:placeholder="Poids" /></p>
+   <p>Taille (en m) : <h:inputText id="taille" value="#{patient.taille}" a:placeholder="Taille" /></p>
+   <!--<h:commandButton value="Calculer" action="#{patient.calculImc()}" />-->
+   <h:commandButton value="Envoyer" action="NewFile.xhtml" />
+</h:form>
+</h:body> 
+</html>

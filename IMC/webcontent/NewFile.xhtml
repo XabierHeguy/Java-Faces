@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head><h:outputStylesheet name="css/style.css" /></h:head> 
+<h:body>
+<h1>CALCUL DE L'IMC</h1>
+<p><h:outputText value="Votre IMC est : #{patient.calculImc()}" /></p>
+<p><h:outputText value="Ce qui signifie : #{patient.afficherResultat(patient.calculImc())}" /></p>
+<h:form>
+<!--
+Votre nationalité : <h:selectOneMenu value="#{patient.nationalite}" >
+	<f:selectItem itemLabel="Italie" itemValue="Italie" />
+	<f:selectItem itemLabel="Argentine" itemValue="Argentine" />
+	<f:selectItem itemLabel="Uruguay" itemValue="Uruguay" />
+	<f:selectItem itemLabel="Chili" itemValue="Chili" />
+</h:selectOneMenu>
+-->
+<p>Au vu du résultat de votre IMC, choisissez votre traitement : </p>
+<h:selectOneMenu value="#{patient.getListeTraitement().get(0)}" >
+	<f:selectItems Value="#{patient.getListeTraitement()}" />
+</h:selectOneMenu>
+</h:form>
+</h:body> 
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
+
+<h:head><h:outputStylesheet name="css/style.css" /></h:head> 
+<h:body> 
+<h1>Utilisateur</h1>
+<h:form>
+   <p>Entrez votre nom : <h:inputText id="name" value="#{user.nom}" a:placeholder="Votre nom" /></p>
+   <p>Entrez votre prénom : <h:inputText id="prenom" value="#{user.prenom}" a:placeholder="Votre prénom" /></p>
+   <p>Entrez votre mot de passe : <h:inputSecret id="mdp" value="#{user.mdp}" a:placeholder="Mot de passe" /></p>
+   <p>Etes-vous marié ? (cocher pour "oui") : <h:selectBooleanCheckbox value="#{user.marie}" /></p>
+   Sexe :
+   <h:selectOneRadio value="#{user.sexe}">
+   	<f:selectItem  itemLabel="homme" itemValue="homme" />
+   	<f:selectItem  itemLabel="femme" itemValue="femme" />
+   </h:selectOneRadio>
+   <h:commandButton value="String" action="#{user.monToString()}" />
+   
+</h:form>
+</h:body> 
+</html>
