@@ -11,11 +11,15 @@ public class Client {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		// Création de la transaction
 		Transaction transaction = session.beginTransaction();
-		// Instanciation de l'objet de type Student
-		Student student = new Student(1, "Loisel", "Christopher");
-		// Insertion de l'objet dans la DB
-		session.save(student);
-		// Commit
-		transaction.commit();
+
+		try {// Instanciation de l'objet de type Student
+			Student student = new Student(3, "Bessas", "Dylan");
+			// Insertion de l'objet dans la DB
+			session.save(student);
+			// Commit
+			transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+		}
 	}
 }
