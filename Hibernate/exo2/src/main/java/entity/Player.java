@@ -152,7 +152,7 @@ public class Player {
 		}
 		session.close();
 	}
-	
+
 	public void saveOrUpdate() {
 		Session session = HibernateUtil.getSessionfactory().openSession();
 		Transaction transaction = session.beginTransaction();
@@ -165,7 +165,7 @@ public class Player {
 		}
 		session.close();
 	}
-	
+
 	public void delete() {
 		Session session = HibernateUtil.getSessionfactory().openSession();
 		Transaction transaction = session.beginTransaction();
@@ -180,6 +180,21 @@ public class Player {
 		session.close();
 	}
 
+	public void deleteAll() {
+		Session session = HibernateUtil.getSessionfactory().openSession();
+		Transaction transaction = session.beginTransaction();
+		for (int i = 1; i < 50; i++) {
+			try {
+				Player p = session.get(Player.class, i);
+				session.delete(p);
+				transaction.commit();
+			} catch (Exception e) {
+				transaction.rollback();
+			}
+		}
+		session.close();
+	}
+
 	public void attack(Player p) {
 		if (this.getMana() >= 15) {
 			System.out.printf("Le player %s attaque le player %s", this.getUsername(), p.getUsername());
@@ -189,21 +204,18 @@ public class Player {
 				System.out.printf("Le player %s est mort", p.getUsername());
 				p.setHp(0);
 				update(p);
-			}
-			else {
+			} else {
 				System.out.printf("Le player %s a mal", p.getUsername());
 				p.setHp(p.getHp() - 20);
 				update(p);
 			}
-		}
-		else {
+		} else {
 			System.out.printf("Le player %s n'a pas assez de mana pour attaquer", p.getUsername());
 		}
 	}
-	
+
 	public void heal(Player p, int hp) {
 		p.setHp(p.getHp() + hp);
 		update(p);
 	}
 }
-
